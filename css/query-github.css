@@ -1,0 +1,235 @@
+@import url(pc-common-github.css) screen and (min-width: 769px);
+@import url(pc-each-github.css) screen and (min-width: 769px);
+
+@import url(sp-common-github.css) screen and (max-width: 768px);
+@import url(sp-each-github.css) screen and (max-width: 768px);
+
+/*Common*/
+/* 
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com 
+Twitter: @rich_clark
+*/
+ 
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, /*sub, sup,*/ var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video,input,textarea, select,option,button {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-family: 'Noto Serif JP', serif;
+    vertical-align:baseline;
+    line-height:1.5;
+    list-style:none;
+	color: #1c1c1c;
+	}
+	h1, h2, h3, h4, h5, h6{
+		font-family: 'Noto Serif JP', serif;
+		font-weight: 400;
+		}
+img{
+	vertical-align:bottom;
+	}
+body {
+    line-height:1;
+	}
+ 
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section { 
+    display:block;
+	}
+ul {
+    list-style:none;
+	}
+blockquote, q {
+    quotes:none;
+	}
+	blockquote:before, blockquote:after,
+	q:before, q:after {
+		content:'';
+		content:none;
+		}
+del {
+    text-decoration: line-through;
+	}
+	abbr[title], dfn[title] {
+		border-bottom:1px dotted;
+		cursor:help;
+		}
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+	}
+input, select {
+    vertical-align:middle;
+	}
+
+.t-align-r{
+	text-align:right !important;
+	}
+	.t-align-c{
+		text-align:center !important;
+		}
+
+a{
+	margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+	color: #043d78;
+	text-decoration:none;
+	transition: 0.5s;
+	}
+	 a:hover{
+		transition: 0.5s;
+		text-decoration: underline;
+		color: rgba(55,52,129,1);
+		}
+		
+td,th{
+	transform-style: flat;
+	transition: all 250ms ease-out;
+	}
+
+/* hoverエフェクト
+---------------------------*/
+a,dt,dd,li,div{
+	transform-style: flat;
+	/*transition: all 250ms ease-out; Slickが戻る原因*/
+	}
+
+/* スクロール時
+---------------------------*/
+/* 画面外にいる状態 */
+.scrollfadeinup,
+.scrollfadeinup2 {
+    opacity : 0;
+    transform : translate(0, 50px);
+    transition : all 500ms;
+    z-index:10;
+    }
+	.scrollfadeinup3 {
+	    opacity : 0;
+	    transform : translate(0, 50px);
+	    transition : all 1500ms;
+	    z-index:10;
+	    }
+	.scrollfadein,
+	.scrollfadein2{
+	    opacity : 0;
+	    transform : translate(0, 0);
+		animation-delay: 2s;
+	    transition : all 1500ms;
+	    z-index:10;
+	    }
+	.scrollfadeinheader {
+	    opacity : 0;
+	    transform : translate(0, 0);
+	    -webkit-animation-delay: 2s;
+		animation-delay: 2s;
+	    transition : all 1500ms;
+	    z-index:10;
+	    }
+	    
+	/* 画面内に入った状態 */
+	.scrollfadeinup.scrollin,
+	.scrollfadeinup2.scrollin,
+	.scrollfadeinup3.scrollin,
+	.scrollfadein.scrollin,
+	.scrollfadein2.scrollin,
+	.scrollfadeinheader.scrollin{
+	    opacity : 1;
+	    transform : translate(0, 0);
+	    z-index:10;
+	    }
+
+	/* スクロールカーテン */
+	.scrollcurtain {
+	    transform : translate(0, 0);
+	    transition: 1s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+	    z-index:1;
+		width:100%;
+		}
+		.scrollcurtain.scrollin
+		{
+			transform : translate(0, 0);
+			width:0;
+	    	}
+
+/* slick 
+---------------------------*/
+.slick-prev,
+.slick-next{
+	width: 40px !important;
+    height: 40px !important;
+	z-index:20!important;
+	}
+.slick-prev:before,
+.slick-next:before{
+	font-size:40px !important;
+	}
+	.slick-prev{
+		 left: 10px!important;
+		 }
+		.slick-next{
+		    right: 10px!important;
+			}
+
+/* ==========================================================================
+よく使うアニメ
+========================================================================== */
+@keyframes fadein{
+	0% {
+		opacity: 0;
+		}
+	100% { 
+		opacity: 1;
+		}
+	}
+
+@keyframes fadeout{
+	0% {
+		opacity: 1;
+		}
+
+	100% { 
+		opacity: 0;
+		width: 0;
+		}
+	}
+
+@keyframes fadeinup{
+	0% {
+		opacity: 0;
+		top: 20px;
+		}
+	100% { 
+		opacity: 1;
+		top: 0;
+		}
+	}
+
+@keyframes fadeindown{
+	0% {
+		opacity: 0;
+		top: -56px;
+		}
+	100% { 
+		opacity: 1;
+		top: 0;
+		}
+	}
+

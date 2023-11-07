@@ -1,0 +1,1047 @@
+@charset "utf-8";
+
+/*スマホ版標準フォントサイズ*/
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, /*sub, sup,*/ var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video,input, select,option,button {
+	font-size: 14px;
+	}
+
+/* 
+**********************************************
+共通
+**********************************************
+*/
+/* 非表示 */
+.display-none{
+	display:none !important;
+	}
+
+.display-sp{
+	/* display:block !important; */
+	}
+	.display-sp-inline{
+		display:inline !important;
+		}
+	.display-pc,
+	.display-pc-inline{
+		display:none !important;
+		}
+
+/* クロームの青枠を削除 */
+*:focus {
+	outline: none;
+	}
+
+/*改行*/
+.br-sp{
+    display: block;
+    }
+    .br-min,
+    .br-pc{
+        display: none;
+        }
+
+/* FLEX */
+.sp-flex,
+.flex {
+	display: flex !important;
+	}
+/* テキストalign */
+.sp-al-right ,
+.al-right{
+	text-align: right !important;
+	}
+	.sp-al-left ,
+	.al-left{
+		text-align: left !important;
+		}
+/* 中央 */
+.sp-center,
+.center{
+	text-align: center !important;
+	justify-self: center;
+	align-items: center;
+	vertical-align: middle;
+	margin: 0 auto;
+	}
+
+body{
+	min-width: 320px;
+	width: 100%;
+	min-height: 620px;
+	}
+	
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box
+	}
+	
+a {
+	text-decoration: none;
+	color: #fff;
+	}
+
+	/*スマホで電話番号に色がつくのを防ぐ処理*/
+	a[href^="tel"]{
+		color:inherit;
+		text-decoration: none;
+		display:inline !important;;
+		}
+
+/*白背景*/
+.bgwhite-area{
+	background-color:#fff;
+	padding: 15px 20px;
+	}
+
+/*パスワード保護*/
+.post-password-form p{
+	padding-bottom: 30px;
+	text-align: center;
+	}
+	.post-password-form p:nth-of-type(2){
+		display: flex;
+		padding-bottom: 50px;
+		}
+		.post-password-form p:nth-of-type(2) label{
+			display: block;
+			}
+		.post-password-form p:nth-of-type(2) input[type=password]{
+			line-height: 30px;
+			width: 200px;
+			}
+		.post-password-form p:nth-of-type(2) input[type=submit]{
+			background-color: #335f8e;
+			color: #fff;
+			line-height: 30px;
+			padding: 0 10px;
+			cursor: pointer;
+			transition: 0.5s;
+			}
+			.post-password-form p:nth-of-type(2) input[type=submit]:hover{
+				opacity: 0.5;
+				}
+
+/* ==========================================================================
+body
+========================================================================== */
+body{
+	background-color: #eae9e4;
+	}
+
+/* ==========================================================================
+グローバル
+========================================================================== */
+#header{
+	}
+	/*グローバル*/
+	#header .upper-area,
+	#header #global{
+		display: none;
+		}
+	
+
+/* ==========================================================================
+ハンバーガーメニュー（SP）
+========================================================================== */
+/*ハンバーガー*/
+#humbergar{
+	width:38px;
+	cursor: pointer;
+	height: 30px;
+	position: fixed;
+	top: 15px;
+	right: 15px;
+	padding: 0 !important;
+	z-index: 20;
+	}
+	#humbergar span{
+		background:#fff;
+		position: absolute;
+		right: 6px;
+		height: 2px;
+		border-radius: 2px;
+		}
+		#humbergar:hover span{
+			background:#fff;
+			}
+		/*1本目*/
+		#humbergar span:nth-of-type(1){
+			top: 9px;
+			width:26px;
+			transition: 1s;
+			}
+			/*2本目*/
+			#humbergar span:nth-of-type(2){
+				top: 18px;
+				width:26px;
+				transition: 1s;
+				}
+
+		/*クリック時*/
+		#humbergar.active span:nth-of-type(1){
+			transform: translateY(10px) rotate(-45deg);
+			width:26px;
+			top: 5px;
+			}
+			#humbergar.active span:nth-of-type(2){
+				transform: translateY(-10px) rotate(45deg);
+				opacity: 1;
+				transition: 0.5s;
+				top: 25px;
+				width:26px;
+				}
+
+/*ハンバーガークリックで出現するグローバル==================================================*/
+#humbergar-global{
+	opacity: 0;
+	position: fixed;
+	top: 0;
+	right: -100vw;
+	width: 100vw;
+	min-height: 100vh;
+	background: linear-gradient(61deg, #335f8e 0%, #043d78 100%) no-repeat 50% 50% / 100% 100%;
+	transition: 0.5s;
+	z-index: 40;
+	}
+	#humbergar-global.active{
+		opacity: 1;
+		right: 0;
+		transition: 1s;
+		}
+	/*クローズボタン*/
+	#humbergar-global #close-area{
+		width:38px;
+		cursor: pointer;
+		height: 30px;
+		position: relative;
+		top: 15px;
+		left: calc(100% - 53px);
+		background-color: rgba(255,255,255,0.8);
+		padding: 0 !important;
+		}
+		#humbergar-global #close-area span{
+			background: #043d78;
+			position: absolute;
+			right: 6px;
+			height: 2px;
+			border-radius: 2px;
+			}
+			#humbergar-global #close-area span:nth-of-type(1){
+				transform: translateY(10px) rotate(-45deg);
+				width:26px;
+				top: 5px;
+				}
+				#humbergar-global #close-area span:nth-of-type(2){
+					transform: translateY(-10px) rotate(45deg);
+					opacity: 1;
+					transition: 0.5s;
+					top: 25px;
+					width:26px;
+					}
+	
+	#humbergar-global .inner-area{
+		padding-top: 50px;
+		}
+		/*ロゴ*/
+		#humbergar-global .humbergar-logo{
+			width: 310px;
+			margin: 0 auto;
+			padding-bottom: 10px;
+			font-size: 24px;
+			}
+			#humbergar-global .humbergar-logo a{
+				color: #fff;
+				}
+			#humbergar-global .humbergar-logo img{
+				width: 80vw;
+				vertical-align: middle;
+				position: relative;
+				top: -5px;
+				}
+			#humbergar-global .humbergar-txt{
+				display: none;
+				}	
+			/*住所*/
+			#humbergar-global address{
+				font-style: normal;
+				font-size:14px;
+				text-align: center;
+				padding-bottom: 30px;
+				color: #fff;
+				}
+			
+			/*ボタンカスタム*/
+			#humbergar-global .btn-area{
+				padding-bottom: 30px;
+				width: calc(100vw - 40px);
+				margin: 0 30px 0 10px ;
+				}
+				#humbergar-global .btn-area a{
+					border-color: rgba(255,255,255,1);
+					width: 150px;
+					}
+					#humbergar-global .btn-area span{
+						color: #fff;
+						}	
+				/*右のボーダー*/
+				#humbergar-global .btn-area .link-border{
+					background-color: #fff;
+					}
+
+			#humbergar-global ul.humbergar-link{
+				display: flex;
+				flex-direction: column;
+				flex-wrap: wrap;
+				height: 240px;
+				margin:0 10px;
+				}
+				#humbergar-global .humbergar-link li{
+					line-height: 40px;
+					width: calc(50vw - 11px);
+					background-color:  #dcdcdc;
+					text-align: center;
+					}
+					#humbergar-global .humbergar-link li:nth-of-type(-n+5){
+						margin: 0 1px 1px 0;
+						}
+						#humbergar-global .humbergar-link li:nth-of-type(n+6){
+							margin: 0 0 1px 0;
+							}
+					#humbergar-global .humbergar-link li a{
+						color: #1c1c1c;
+						}
+					/*サブメニュー非表示*/
+					#humbergar-global .humbergar-link li ul{
+						display: none;
+						}
+						#humbergar-global .humbergar-link .li-facility ul,
+						#humbergar-global .humbergar-link .li-course ul{
+							display: block;
+							border-top: solid 1px #335f8e;
+							}
+							#humbergar-global .humbergar-link .li-facility ul li,
+							#humbergar-global .humbergar-link .li-course ul li{
+								line-height: 39px;
+								}
+
+/* ==========================================================================
+ボタン
+========================================================================== */
+.btn-area{
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	}
+	.btn-area a,
+	.btn-area button{
+		display: block;
+		flex-grow: 1;
+		text-align: center;
+		margin-right: 40px;
+		cursor: pointer !important;
+		position: relative;
+		transition: 0.5s;
+		border: solid 1px #043d78;
+		}
+		.btn-area a span,
+		.btn-area button span{
+			color: #043d78;
+			display: block;
+			position: relative;
+			z-index: 10;
+			line-height: 45px;
+			}
+		.btn-area a::before ,
+		.btn-area button::before {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			content: '';
+			background: #335f8e;
+			transform-origin: right top;
+			transform: scale(0, 1);
+			transition: transform .3s;
+			}
+			.btn-area a:hover::before ,
+			.btn-area button:hover::before {
+				transform-origin: left top;
+				transform: scale(1, 1)
+				}
+		.btn-area a:last-child,
+		.btn-area button:last-child{
+			margin-right: 0
+			}
+			.btn-area a:hover,
+			.btn-area button:hover{
+				text-decoration: none;
+				}
+			.btn-area a:hover span,
+			.btn-area button:hover span{
+				color: #fff;
+				transition: 0.5s;
+				
+				}
+		/*右のボーダー*/
+		.btn-area .link-border{
+			display:block;
+			width: 40px;
+			position:absolute;
+			top:22px;
+			left: calc(100% - 20px);
+			height: 1px;
+			background-color: #043d78;
+			}
+
+/*グレーの丸ボタン*/
+.btn-gray{
+	padding-bottom: 50px;
+	}
+	.btn-gray a{
+		display: block;
+		width: 80px;
+		height: 80px;
+		border-radius: 50%;
+		background-color: rgba(0,0,0,0.2);
+		text-align: center;
+		color: #fff;
+		text-decoration:none !important;
+		line-height:80px;
+		font-size: 14px;
+		margin: 0 auto;
+		}
+		.btn-gray a:hover{
+			background-color: rgba(0,0,0,0.4);
+			color: #fff;
+			}
+
+
+/* ==========================================================================
+アイコン等
+========================================================================== */
+.marumoji{
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	flex-flow: column; 
+	vertical-align: top;
+	}
+	.marumoji span{
+		}
+
+/* ==========================================================================
+リスト
+========================================================================== */	
+
+/*リスト*/
+.list-dot li:before{
+	content:"・";
+	margin-left:-1em;
+	width: 1em; 
+	}
+	.list-dot li{
+		padding-left:1em;
+		}
+
+/* 米印（複数行の時） */
+/* 米印（１行の時） */
+.list-atten li:before,
+.kome:before{
+	content:"※";
+	margin-left:-1em;
+	width: 1em; 
+	}
+	.list-atten li,
+	.kome{
+		padding-left:1em !important;
+		list-style-type: none;
+		}
+
+	/*数字*/
+	ol{
+		margin-left:24px !important;
+		padding-right: 10px !important;
+		}
+		ol li{
+			list-style-type: decimal;
+		}
+
+/*ol,li表示*/
+.demical{
+	padding-left: 30px !important;
+	}
+	.demical li{
+		display: list-item !important;
+		list-style-type: decimal !important;
+		padding: 0 0 10px;
+		}
+
+/*ol.li表示(括弧付き)*/
+.bracketsdecimal{
+	margin-left: 2em;
+	}
+	.bracketsdecimal li{
+		counter-increment: cnt;
+		padding: 10px 0;
+		}
+	.bracketsdecimal li:before{
+		display: inline-block;
+		content: "(" counter(cnt) ") ";
+		margin-left: -2em;
+		width: 2em;
+		}
+
+/*会則等*/
+.list-rules{
+	}
+	.list-rules dt{
+		}
+	.list-rules dd{
+		padding-left:14px;
+		display: flex;
+		}
+		.list-rules dd + dt{
+			padding-top: 10px;
+			}
+		.list-rules dd span{
+			display: block;
+			}
+/* ==========================================================================
+ページ構成・タイトル
+========================================================================== */
+
+/*ページタイトルエリア*/
+#pagetitle-area{
+	height: 240px;
+	background-size: cover;
+	}
+	/* メインエリアの黒フィルター */
+	#pagetitle-area .area-inn{
+		background-color: rgba(0,0,0,0.1);
+		height: 240px;
+		padding-top: 85px;
+		}
+	#pagetitle-area h1{
+		font-size: 24px;
+		text-align: center;
+		color: #fff;
+		text-shadow: rgba(0,0,0,1) 0px 0px 3px;
+		}
+		#pagetitle-area h1 span{
+			display: block;
+			color: #fff;font-size: 18px;
+			}
+
+/*メインコンテンツ*/
+#maincontents-area{
+	background-color: #eae9e4;
+	padding-bottom: 50px;
+	}
+		/*コンテンツの中*/
+		#maincontents-area .area-inn{
+			}
+			/*キャッチテキスト*/
+			.txt-pagecatch{
+				font-size: 18px;
+				text-align: center;
+				padding:0 10px 30px;
+				}
+
+
+			/*マージン等*/
+			#maincontents-area p + .table-common{
+				margin-top: 30px;
+				}
+			#maincontents-area .table-common + .sbt-area,
+			#maincontents-area .btn-area + .sbt-area{
+				padding-top: 30px;
+				}
+			#maincontents-area .table-common + .table-common{
+				margin-top: 30px;
+				}
+			#maincontents-area .list-dot + h3,
+			#maincontents-area .list-atten + h3{
+				margin-top: 30px;
+				}
+			#maincontents-area p + .btn-area,
+			#maincontents-area .table-common + .btn-area,
+			#maincontents-area .list-dot + .btn-area,
+			#maincontents-area .list-atten + .btn-area{
+				padding-top: 30px;
+				}
+			#maincontents-area p + h3,
+			#maincontents-area ul + h3,
+			#maincontents-area ol + h3{	
+				margin-top: 30px;
+				}
+
+/*左寄せタイトル*/
+.sbt-area{
+	padding-bottom: 10px;
+	margin-bottom: 30px;
+	border-bottom: solid 1px #ccc;
+	position: relative
+	}
+	.sbt-area h2,
+	.sbt-area h3{
+		font-size: 18px;
+		padding-left: 5px;
+		}
+		.sbt-area h2 span,
+		.sbt-area h3 span{
+			color: #999;
+			padding-left: 20px;
+			font-size: 14px;
+			}
+	.sbt-area .blue-line{
+		position: absolute;
+		bottom: -1px;
+		left: 0;
+		width: 38.2%;
+		border-bottom: solid 2px #043d78;
+		}
+
+/*中央寄せタイトル*/
+.sbt-area-c{
+	margin-bottom: 30px;
+	padding-top: 30px;
+	}
+	.sbt-area-c h2,
+	.sbt-area-c h3{
+		font-size: 24px;
+		text-align: center;
+		}
+	.sbt-area-c p{
+		font-size: 18px;
+		color: #999;
+		text-align: center;
+		}
+
+/*サブサブタイトル*/
+.ss-title{
+	font-size: 18px;
+	color: #043d78;
+	padding-bottom: 5px;
+	}
+
+/* ==========================================================================
+table
+========================================================================== */
+
+/*table外枠*/
+.table-common{
+	border-collapse: separate;
+	border-spacing: 1px;
+	background-color:#dcdcdc;
+	}
+	/*tableタイトル部分*/
+	.table-common th{
+		text-align: left;
+		vertical-align: middle;
+		padding: 5px 5px;
+		font-size: 14px;
+		}
+
+	/*横行タイトル部分*/
+	.table-common thead th{
+		text-align: center;
+		font-size: 14px;
+		background-color:#335f8e;
+		color: #fff;
+		font-weight: 400;
+		}
+		.table-common thead tr:nth-of-type(2) th{
+			background-color: #e2e2e2;
+			color: #335f8e;
+			}
+		
+	/*縦列タイトル部分*/
+	.table-common tbody th{
+		font-size: 14px;
+		background-color:#335f8e;
+		color: #fff;
+		font-weight: 400;
+		}
+		
+	/*table中身部分*/
+	.table-common td{
+		text-align: left;
+		padding: 5px 5px;
+		vertical-align: middle;
+		font-size: 14px;
+		background-color:#fff;
+		}
+
+/*ライン型table外枠*/
+.table-line{
+	border-top: solid 1px #ccc;
+	border-bottom: solid 1px #ccc;
+	}
+	.table-line tr{
+		border-bottom:dashed 1px #ccc;
+		}
+	.table-line th{
+		text-align:left;
+		padding-left:20px;
+		font-weight: 400;
+		}
+		.table-line th,
+		.table-line td{
+			padding-top:10px;
+			padding-bottom:10px;
+			font-size: 14px ;
+			}
+		.table-line tr:last-child{
+			border-bottom:none;
+			}
+
+/*テーブル用タイトル*/
+.title-table{
+	display: flex;
+	padding-bottom: 5px;
+	}
+	.title-table h3{
+		margin-right: auto;
+		}
+	.title-table caption{
+		display: block;
+		}
+
+/*料金用テーブル*/
+.table-price{
+	}
+	.table-price tbody td{
+		text-align: center;
+		}
+
+/* ==========================================================================
+お知らせ一覧
+========================================================================== */
+	 .list-news{
+		border-top: dashed 1px #ccc;
+		margin:0 10px
+		}
+		 .list-news li{
+			padding: 15px 0;
+			border-bottom: dashed 1px #ccc;
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			}
+			 .list-news li p:nth-of-type(1){
+				background-color: #cacaca;
+				white-space: nowrap;
+				line-height: 30px;
+				text-align: center;
+				padding: 0 10px;
+				margin-right: calc(100% - 90px);
+				}
+				 .list-news li p:nth-of-type(2){
+					padding-top: 5px;
+					}
+				 .list-news li p:nth-of-type(2) a{
+					width: 100%;
+					padding-top: 5px;
+					color: #1c1c1c;
+					}
+					 .list-news li p:nth-of-type(2) span{
+						white-space: nowrap;
+						text-align: center;
+						background-color: #813225;
+						padding: 0 10px;
+						color:#fff;
+						}
+	/*ページネーション*/
+	 .nav-links{
+		display: flex;
+		padding-top: 50px;
+		}
+		 .nav-links a,
+		 .nav-links span{
+			display: block;
+			line-height: 35px;
+			width: 40px;
+			border: solid 1px #1c1c1c;
+			text-align: center;
+			text-decoration: none;
+			color: #1c1c1c;
+			margin-right: 2px;
+			font-size: 12px;
+			}
+			 .nav-links .current,
+			 .nav-links a:hover,
+			 .nav-links span:hover{
+				background-color: #dcdcdc;
+				}
+			 .nav-links .prev,
+			 .nav-links .next{
+				width: 100px;
+				}
+
+/* ==========================================================================
+モーダル
+========================================================================== */
+.modal-area{
+	}
+	 .modal-area .table-common{
+		margin-bottom: 20px;
+		width: 800px;
+		table-layout: fixed;
+		}
+		 .modal-area .table-common th{
+			padding: 10px 15px;
+			color: #1c1c1c !important;
+			font-size: 14px;
+			}
+		 .modal-area .table-common td{
+			padding: 10px 15px 10px 15px;
+			font-size: 14px;
+			}
+		 .modal-area .table-common:last-child{
+			margin-bottom: 0;	
+			}
+	.modal-area p{
+		color: #1c1c1c;
+		padding-bottom: 20px;
+		}
+	.modal-area img{
+		max-width: 100%;
+		}
+
+/*レストラン*/
+.modal-area ol{
+	padding-right: 20px;
+	}
+	.modal-area li{
+		color: #1c1c1c !important;
+		border-bottom: dashed 1px #ccc;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		}
+
+/*ローカルルール*/
+.txt-localrules{
+	padding: 30px 0 20px;
+	color: #8a864e;
+	text-align: center;
+	}
+
+/*予約状況*/
+#info-reservation{
+	height: 80vh;
+	}
+	#info-reservation iframe{
+		width: 755px;
+		margin: 0 auto;
+		height: 60vh;
+		overflow-y: scroll;
+		}
+	#info-reservation ul{
+		width: 755px !important;
+		}
+		#info-reservation li{
+			width: 755px !important;
+			border-bottom: none;
+			padding: 0px;
+			}
+
+/* ==========================================================================
+PAGER
+========================================================================== */
+.pager_list{
+	display: flex;
+	width: 100%;
+	}
+	.pager_list li{
+		flex-grow: 1;
+		margin-right: 1px;
+		
+		}
+		.pager_list li span,
+		.pager_list li a{
+			width: 100%;
+			display: block;
+			text-align: center;
+			color: #000 !important;
+			line-height: 36px;
+			background-color: rgba(255,255,255,0.8);
+			transition: 0.5s;
+			}
+			.pager_list li span.current{
+				background-color: rgba(255,255,255,1);
+				}
+			.pager_list li:hover span,
+			.pager_list li:hover a{
+				background-color: rgba(255,255,255,1);	
+				transition: 0.5s
+				}
+
+
+/* ==========================================================================
+クラブ署名
+========================================================================== */
+#signature-area{
+	background-image: url(../images/bg-signature.jpg);
+	background-position: left -300px top;
+	}
+	#signature-area .area-inn{
+		padding: 50px 30px 30px;
+		background-color: rgba(0,0,0,0.2);
+		}
+	#signature-area *{
+		color: #fff;
+		}
+	#signature-area .sbt-signature{
+		font-size: 24px;
+		padding-bottom: 3px;
+		}
+		#signature-area .sbt-signature span{
+			font-size: 18px;
+			display: block;
+			}
+		#signature-area .txt-signature{
+			font-size: 12px;
+			
+			}
+		#signature-area .clubinfo .btn-caddie{
+				width: 150px;
+				padding-bottom: 25px;
+				padding-top: 10px;
+				}
+				#signature-area .clubinfo .btn-caddie a{
+					display: block;
+					background-color: rgba(255,255,255,0.8);
+					line-height: 24px;
+					text-align: center;
+					color: #1c1c1c;
+					text-decoration: none;
+					transition: 0.5s;
+					font-size: 14px;
+					}
+					#signature-area .clubinfo .btn-caddie a:hover{
+						background-color: rgba(255,255,255,0.5);
+						}
+	#signature-area address{
+		margin: 0 auto 50px;
+		}
+		#signature-area address *{
+			font-style: normal;
+			}
+
+	/*ボタンカスタム*/
+	#signature-area .btn-area{
+		display: block;
+		}
+		#signature-area .btn-area a{
+			border-color: rgba(255,255,255,1);
+			width: calc(100vw - 60px);
+			margin: 0 auto 30px;
+			}
+		/*右のボーダー*/
+		#signature-area .btn-area .link-border{
+			background-color: #fff;
+			}
+
+/* ==========================================================================
+フッタ
+========================================================================== */		
+#footer{
+	}
+	#footer a,
+	#footer a span{
+		color: #1c1c1c;
+		font-size:14px;
+		transition: 0.5s;
+		}
+		#footer a:hover,
+		#footer a:hover span{
+			color: #1c1c1c;
+			}
+
+	/*フッタ サイトマップ*/
+	#footer .footer-link {
+		border-bottom:1px solid #ccc;
+		}
+		#footer .footer-link li {
+			border-top: 1px solid #ccc;
+			}
+
+		#footer .footer-link li a {
+			display: block;
+			padding: 12px 20px;
+			background-size: 6px auto;
+			}
+			/*初期状態はアコーディオン非表示*/
+			#footer .footer-link .nav-child{
+				display: none;
+				}
+				#footer .footer-link .nav-child li a {
+					padding: 12px 40px;
+					}
+					#footer .footer-link .nav-child li a::before{
+						content: '>';
+						font-size: 10px;
+						padding-right: 10px;
+						color: #999;
+						}
+			
+			#footer .js-aco{
+				position: relative;
+				width: 100%;
+				}
+				/*アイコン*/
+				#footer .js-aco .ico-open{
+					display: block;
+					position: absolute;
+					width: 24px;
+					height: 24px;
+					top: 5px;
+					right: 20px;
+					}
+					#footer .js-aco .ico-open::before{
+						content: '+';
+						font-size: 24px;
+						color: #999;
+						}
+					#footer .js-aco.is-active .ico-open::before{
+						content: '−';
+						font-size: 24px;
+						color: #999;
+						}
+				#footer .js-aco li a {
+					padding-left: 40px;
+					}
+
+		#footer .footer-btn-wrap {
+			display: flex;
+			align-items: flex-start;
+			justify-content: space-around;
+			padding-top: 15px;
+			border-top: 1px solid #ebebeb;
+			}
+			
+		#footer .footer-link .footer-btn-wrap a {
+			padding: 10px;
+			width: 40%;
+			}
+
+	/*コピーライト*/
+	#footer .copy-area p{
+		text-align:center;
+		padding: 30px 0 10px;
+		color: #999;
+		}
