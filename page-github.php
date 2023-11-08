@@ -140,7 +140,7 @@ Template Name: トップページ
 	<div id="catch-area">
 		<div class="left-area"><img src="<?php echo get_template_directory_uri(); ?>/images/img-topcatch.jpg" alt=""></div>
 		<div class="right-area">
-			<h2>ようこそ、Githubカントリークラブへ<span>2023.11.8修正しました。</span><span>こちらはブランチでの作業です。</span></h2>
+			<h2>ようこそ、Githubカントリークラブへ<span>オリジナル</span></h2>
 
 			<!-- <p class="btn-area">
 				<a href="<?php echo esc_url(home_url('/history')); ?>"><span>クラブの歴史</span><span class="link-border"></span></a>
